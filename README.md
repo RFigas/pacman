@@ -123,7 +123,7 @@ Unfortunately, you **cannot use patterns from the original Pac-Man** because of 
 
 Also, the **collision detection** is tighter than the original (checked twice as often) to prevent pass-through "bugs".
 
-I also chose to leave out the **overflow bug** which shifts a ghost target when Pac-Man is facing up, [detailed here](http://donhodges.com/pacman_pinky_explanation.htm).
+~~I also chose to leave out the **overflow bug** which shifts a ghost target when Pac-Man is facing up, [detailed here](http://donhodges.com/pacman_pinky_explanation.htm).~~
 
 ### Report/Fix Bugs
 

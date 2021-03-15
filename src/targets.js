@@ -41,17 +41,11 @@ blinky.drawTarget = function(ctx) {
 pinky.getTargetTile = function() {
     var px = pacman.tile.x + 4*pacman.dir.x;
     var py = pacman.tile.y + 4*pacman.dir.y;
-    if (pacman.dirEnum == DIR_UP) {
-        px -= 4;
-    }
     return { x : px, y : py };
 };
 pinky.getTargetPixel = function() {
     var px = pacman.pixel.x + 4*pacman.dir.x*tileSize;
     var py = pacman.pixel.y + 4*pacman.dir.y*tileSize;
-    if (pacman.dirEnum == DIR_UP) {
-        px -= 4*tileSize;
-    }
     return { x : px, y : py };
 };
 pinky.drawTarget = function(ctx) {
@@ -63,9 +57,6 @@ pinky.drawTarget = function(ctx) {
     if (this.targetting == 'pacman') {
         ctx.beginPath();
         ctx.moveTo(pacman.pixel.x, pacman.pixel.y);
-        if (pacman.dirEnum == DIR_UP) {
-            ctx.lineTo(pacman.pixel.x, pixel.y);
-        }
         ctx.lineTo(pixel.x, pixel.y);
         ctx.stroke();
         renderer.drawCenterPixelSq(ctx, pixel.x, pixel.y, targetSize);
@@ -79,9 +70,6 @@ pinky.drawTarget = function(ctx) {
 inky.getTargetTile = function() {
     var px = pacman.tile.x + 2*pacman.dir.x;
     var py = pacman.tile.y + 2*pacman.dir.y;
-    if (pacman.dirEnum == DIR_UP) {
-        px -= 2;
-    }
     return {
         x : blinky.tile.x + 2*(px - blinky.tile.x),
         y : blinky.tile.y + 2*(py - blinky.tile.y),
@@ -90,17 +78,11 @@ inky.getTargetTile = function() {
 inky.getJointPixel = function() {
     var px = pacman.pixel.x + 2*pacman.dir.x*tileSize;
     var py = pacman.pixel.y + 2*pacman.dir.y*tileSize;
-    if (pacman.dirEnum == DIR_UP) {
-        px -= 2*tileSize;
-    }
     return { x: px, y: py };
 };
 inky.getTargetPixel = function() {
     var px = pacman.pixel.x + 2*pacman.dir.x*tileSize;
     var py = pacman.pixel.y + 2*pacman.dir.y*tileSize;
-    if (pacman.dirEnum == DIR_UP) {
-        px -= 2*tileSize;
-    }
     return {
         x : blinky.pixel.x + 2*(px-blinky.pixel.x),
         y : blinky.pixel.y + 2*(py-blinky.pixel.y),
@@ -116,9 +98,6 @@ inky.drawTarget = function(ctx) {
         pixel = this.getTargetPixel();
         ctx.beginPath();
         ctx.moveTo(pacman.pixel.x, pacman.pixel.y);
-        if (pacman.dirEnum == DIR_UP) {
-            ctx.lineTo(pacman.pixel.x, joint.y);
-        }
         ctx.lineTo(joint.x, joint.y);
         ctx.moveTo(blinky.pixel.x, blinky.pixel.y);
         ctx.lineTo(pixel.x, pixel.y);
